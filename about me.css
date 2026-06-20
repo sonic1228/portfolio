@@ -1,0 +1,241 @@
+/* ล้างค่าเริ่มต้น */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Inter", sans-serif;
+}
+
+body {
+  background-color: #000000; /* ขอบมืดรอบนอกแบบในรูปภาพ */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  overflow: hidden;
+}
+
+/* กล่องหน้าต่างเว็บหลักบนจอ Desktop */
+.about-container {
+  width: 100vw;
+  height: 100vh;
+  max-width: 1280px; /* ล็อกขนาดความกว้างหน้าต่างให้สมส่วนสวยงาม */
+  max-height: 850px; /* ล็อกความสูง */
+  background-color: #f3f3f3; /* พื้นหลังสีเทาอ่อนตามภาพ */
+  display: flex;
+  border-radius: 4px;
+  overflow: hidden;
+  position: relative;
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5);
+}
+
+/* ================= สไตล์ SIDEBAR (ฝั่งซ้าย) ================= */
+.sidebar {
+  width: 25%;
+  height: 100%;
+  background-color: #008ca1; /* รหัสสีฟ้าที่คุณกำหนด */
+  display: flex;
+  flex-direction: column;
+}
+
+/* กล่องโปรไฟล์สีเทาด้านบนซ้าย */
+.sidebar-profile-box {
+  background-color: #bcbec3; /* รหัสสีเทาที่คุณกำหนด */
+  height: 30%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+}
+
+.mini-profile-circle {
+  width: 140px;
+  height: 140px;
+  border-radius: 50%;
+  overflow: hidden;
+  border: 3px solid #f3f3f3;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+.mini-profile-circle img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* รายการเมนูลิงก์ */
+.sidebar-menu {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding-left: 15%;
+  gap: 30px;
+}
+
+.menu-item {
+  color: #bcbec3; /* สีเมนูปกติเป็นสีเทา */
+  text-decoration: none;
+  font-size: 1.8rem;
+  font-weight: 700;
+  transition: color 0.2s ease;
+}
+
+/* เมนูที่ถูกเลือกอยู่ (About me) จะเป็นสีขาวเด่นขึ้นมาตามรูป */
+.menu-item.active,
+.menu-item:hover {
+  color: #ffffff;
+}
+
+/* ================= สไตล์ MAIN CONTENT (ฝั่งขวา) ================= */
+.main-content {
+  width: 75%;
+  height: 100%;
+  padding: 60px 80px;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+/* หัวข้อใหญ่ ABOUT ME */
+.page-title {
+  color: #008ca1;
+  font-size: 4.5rem;
+  font-weight: 900;
+  letter-spacing: -1px;
+  margin-bottom: 10px;
+}
+
+/* หัวข้อย่อยสไตล์ตัวหนาเด่นสีดำ */
+h3 {
+  color: #000000;
+  font-size: 1.4rem;
+  font-weight: 700;
+  margin-bottom: 15px;
+  text-transform: uppercase;
+}
+
+/* กล่องข้อความ Introduction */
+.intro-section p {
+  color: #000000;
+  font-size: 1.1rem;
+  line-height: 1.6;
+  font-weight: 600;
+  max-width: 90%;
+  text-align: justify;
+}
+
+/* จัดส่วนการแบ่งคอลัมน์ของ Study plans และ Skills */
+.skills-grid {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 20px;
+  gap: 40px;
+}
+
+.grid-column {
+  flex: 1;
+}
+
+/* กลุ่มกล่องไอคอน */
+.icon-group {
+  display: flex;
+  gap: 15px;
+  align-items: center;
+}
+
+.wrap-group {
+  flex-wrap: wrap; /* ให้ไอคอน Skills ขึ้นบรรทัดใหม่ได้แบบในภาพตัวอย่าง */
+  max-width: 320px;
+}
+
+/* กล่องวงกลมใส่ไอคอนโปรแกรม/ภาษา */
+.skill-icon-box {
+  width: 65px;
+  height: 65px;
+  border-radius: 50%;
+  overflow: hidden;
+  background-color: #ffffff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15); /* เติมเงาฟุ้ง ๆ นุ่ม ๆ ใต้ไอคอน */
+}
+
+.skill-icon-box img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* ส่วนช่องทางติดต่อด้านล่าง */
+.contact-section {
+  margin-top: 20px;
+}
+
+.contact-icons {
+  display: flex;
+  gap: 20px;
+}
+
+/* สไตล์ปุ่มวงกลมโซเชียลมีเดียสีสันสดใส */
+.social-btn {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #ffffff;
+  font-size: 1.5rem;
+  text-decoration: none;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+  transition: transform 0.2s ease;
+}
+
+.social-btn:hover {
+  transform: scale(1.1); /* ขยายขนาดขึ้นเล็กน้อยเมื่อเมาส์ชี้ */
+}
+
+/* สีเฉพาะของแต่ละไอคอนตามแบรนด์จริง */
+.social-btn.gmail {
+  background: linear-gradient(135deg, #e11d48, #be123c);
+}
+.social-btn.whatsapp {
+  background-color: #25d366;
+}
+.social-btn.facebook {
+  background-color: #1877f2;
+}
+.social-btn.instagram {
+  background: linear-gradient(
+    45deg,
+    #f09433 0%,
+    #e6683c 25%,
+    #dc2743 50%,
+    #cc2366 75%,
+    #bc1888 100%
+  );
+}
+
+/* ================= ส่วนตกแต่งดีไซน์มุมโค้งสีฟ้าลอย ================= */
+.decor-top-right {
+  position: absolute;
+  top: -40px;
+  right: -40px;
+  width: 140px;
+  height: 140px;
+  background-color: #008ca1;
+  border-radius: 50%;
+}
+
+.decor-bottom-right {
+  position: absolute;
+  bottom: -50px;
+  right: -30px;
+  width: 150px;
+  height: 150px;
+  background-color: #008ca1;
+  border-radius: 50%;
+}

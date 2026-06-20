@@ -1,0 +1,238 @@
+/* ล้างค่าเริ่มต้น */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Inter", sans-serif;
+}
+
+body {
+  background-color: #000000;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  overflow: hidden;
+}
+
+/* หน้าต่างหลักของเว็บ */
+.projects-container {
+  width: 100vw;
+  height: 100vh;
+  max-width: 1280px;
+  max-height: 850px;
+  background-color: #f3f3f3;
+  display: flex;
+  border-radius: 4px;
+  overflow: hidden;
+  position: relative;
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5);
+}
+
+/* ================= SIDEBAR (ฝั่งซ้าย) ================= */
+.sidebar {
+  width: 25%;
+  height: 100%;
+  background-color: #008ca1;
+  display: flex;
+  flex-direction: column;
+}
+
+.sidebar-profile-box {
+  background-color: #bcbec3;
+  height: 30%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+}
+
+.mini-profile-circle {
+  width: 140px;
+  height: 140px;
+  border-radius: 50%;
+  overflow: hidden;
+  border: 3px solid #f3f3f3;
+}
+
+.mini-profile-circle img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.sidebar-menu {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding-left: 15%;
+  gap: 30px;
+}
+
+.menu-item {
+  color: #bcbec3;
+  text-decoration: none;
+  font-size: 1.8rem;
+  font-weight: 700;
+}
+
+.menu-item.active {
+  color: #ffffff;
+}
+
+/* ================= MAIN CONTENT (ฝั่งขวา) ================= */
+.main-content {
+  width: 75%;
+  height: 100%;
+  padding: 50px 60px 40px 60px;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+}
+
+.header-section {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 25px;
+  z-index: 2;
+}
+
+.page-title {
+  color: #008ca1;
+  font-size: 3.5rem;
+  font-weight: 900;
+  letter-spacing: -1px;
+}
+
+.filter-container {
+  display: flex;
+  gap: 10px;
+}
+
+.filter-btn {
+  background-color: transparent;
+  border: 2px solid #bcbec3;
+  color: #bcbec3;
+  padding: 8px 18px;
+  border-radius: 20px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.filter-btn.active,
+.filter-btn:hover {
+  background-color: #008ca1;
+  border-color: #008ca1;
+  color: #ffffff;
+}
+
+/* ================= พื้นที่ที่สั่งให้ลากขึ้น-ลงได้ ================= */
+.grid-wrapper {
+  flex: 1;
+  overflow-y: auto;
+  padding-right: 15px;
+  z-index: 1;
+  cursor: grab; /* เปลี่ยนสัญลักษณ์เมาส์เป็นรูปฝ่ามือกางเพื่อบอกว่า "ลากได้นะ" */
+  user-select: none; /* ป้องกันไม่ให้ขึ้นแถบไฮไลท์สีฟ้าเวลาเมาส์ลาก */
+}
+
+/* เวลาคลิกเมาส์ค้างไว้เพื่อลาก ให้สัญลักษณ์เมาส์เปลี่ยนเป็นรูปมือที่กำลังกำแน่น (Grabbing) */
+.grid-wrapper.grabbing {
+  cursor: grabbing;
+}
+
+/* แถบเลื่อนขวาสุด */
+.grid-wrapper::-webkit-scrollbar {
+  width: 8px;
+}
+.grid-wrapper::-webkit-scrollbar-track {
+  background: #e5e5e5;
+  border-radius: 10px;
+}
+.grid-wrapper::-webkit-scrollbar-thumb {
+  background: #008ca1;
+  border-radius: 10px;
+}
+
+/* แสดงผลแบบ 2 คอลัมน์ */
+.projects-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 25px;
+  padding-bottom: 30px;
+}
+
+.project-card {
+  background-color: #ffffff;
+  border-radius: 12px;
+  overflow: hidden;
+  position: relative;
+  aspect-ratio: 1 / 1;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.05);
+}
+
+/* ป้องกันภาพหลุดโฟกัสเวลาเมาส์ดึงลาก */
+.project-card img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  pointer-events: none; /* ล็อกไม่ให้เมาส์ไปดึงไฟล์ภาพหลุดออกมาเวลากำลังลากขึ้นลง */
+  transition: transform 0.4s ease;
+}
+
+.card-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 140, 161, 0.85);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.card-overlay p {
+  color: #ffffff;
+  font-size: 1.2rem;
+  font-weight: 700;
+  border: 2px solid #ffffff;
+  padding: 10px 20px;
+  border-radius: 6px;
+}
+
+.project-card:hover img {
+  transform: scale(1.06);
+}
+
+.project-card:hover .card-overlay {
+  opacity: 1;
+}
+
+/* วงกลมตกแต่ง */
+.decor-top-right {
+  position: absolute;
+  top: -40px;
+  right: -40px;
+  width: 140px;
+  height: 140px;
+  background-color: #008ca1;
+  border-radius: 50%;
+  z-index: 0;
+}
+
+.decor-bottom-right {
+  position: absolute;
+  bottom: -50px;
+  right: -30px;
+  width: 150px;
+  height: 150px;
+  background-color: #008ca1;
+  border-radius: 50%;
+  z-index: 0;
+}

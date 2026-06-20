@@ -1,0 +1,143 @@
+/* ล้างค่า Padding และ Margin พื้นฐานของบราวเซอร์ออกทั้งหมด */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Inter", sans-serif;
+}
+
+/* จัดวางตําแหน่งกล่องแบนเนอร์ให้อยู่กึ่งกลางหน้าจอ Desktop เสมอ */
+body {
+  background-color: #f3f3f3; /* ใช้สีเทาอ่อนแบบในรูปเป็นพื้นหลังหลักของหน้าเว็บ */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  overflow: hidden; /* ป้องกันไม่ให้มีแถบเลื่อน (Scrollbar) กวนใจบน Desktop */
+}
+
+/* กล่องแบนเนอร์หลัก: กำหนดขนาดกว้าง-ยาวคงที่ตามสัดส่วนของรูปภาพต้นฉบับ */
+.banner-container {
+  width: 100vw; /* ขยายกว้างเต็ม 100% ของหน้าจอคอมพิวเตอร์แต่ละเครื่อง */
+  height: 100vh; /* ขยายสูงเต็ม 100% ของหน้าจอคอมพิวเตอร์ */
+  background-color: #f3f3f3;
+  position: relative;
+  display: flex;
+  align-items: center;
+  padding: 0 10vw; /* เว้นระยะห่างด้านซ้าย-ขวาเป็นเปอร์เซ็นต์ เพื่อไม่ให้ข้อความไปบังแถบสีฟ้า */
+}
+
+/* การตั้งค่าแถบสีฟ้าด้านข้าง: ติดขอบด้านซ้าย/ขวาแนบสนิท แต่ลอยเว้นระยะด้านบน-ล่าง */
+.side-bar {
+  position: absolute;
+  width: 5vw; /* ปรับความกว้างของแถบสีฟ้าให้ยืดหยุ่นตามความกว้างหน้าจอ */
+  max-width: 80px; /* จำกัดความกว้างสูงสุดไม่ให้ใหญ่เกินไปบนจอที่กว้างมาก ๆ */
+  min-width: 50px; /* จำกัดความกว้างต่ำสุดไม่ให้เล็กเกินไป */
+  top: 15vh; /* เว้นระยะจากขอบบน 15% ของความสูงหน้าจอ */
+  bottom: 15vh; /* เว้นระยะจากขอบล่าง 15% ของความสูงหน้าจอ */
+  background-color: #008ca1; /* รหัสสีฟ้าตรงตามที่กำหนด */
+}
+/* ดันแถบสีฟ้าด้านซ้ายให้แนบชิดขอบซ้ายสุดของแบนเนอร์พอดี */
+.left-bar {
+  left: 0;
+}
+
+/* ดันแถบสีฟ้าด้านขวาให้แนบชิดขอบขวาสุดของแบนเนอร์พอดี */
+.right-bar {
+  right: 0;
+}
+
+/* การจัดโครงสร้างเนื้อหาภายในให้แยกฝั่งกันซ้าย-ขวาอย่างสมดุล */
+.main-content {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 4vw; /* เพิ่มระยะห่างระหว่างข้อความกับรูปภาพตามขนาดหน้าจอ */
+}
+/* ส่วนจัดการข้อความ */
+.text-section {
+  flex: 1.2;
+}
+
+.title-top {
+  font-size: 4.5vw; /* ตัวหนังสือจะขยายใหญ่ขึ้นอัตโนมัติตามความกว้างของหน้าจอ Desktop */
+  font-weight: 900;
+  color: #008ca1;
+  line-height: 1.1;
+  letter-spacing: -1px;
+}
+
+.title-main {
+  font-size: 4.5vw; /* ขยายใหญ่ตามหน้าจอเช่นกัน */
+  font-weight: 900;
+  color: #008ca1;
+  line-height: 1.1;
+  margin-bottom: 2.5vh; /* ระยะห่างด้านล่างปรับตามความสูงหน้าจอ */
+}
+.gray-text {
+  color: #bcbec3;
+  justify-content: center;
+}
+
+/* ข้อความบรรทัดย่อยด้านล่างชื่อ */
+.sub-detail {
+  font-size: 35px; /* ขยายใหญ่ตามหน้าจอเช่นกัน */
+  font-weight: 900;
+  color: #008ca1;
+  line-height: 1.1;
+  margin-bottom: 2.5vh; /* ระยะห่างด้านล่างปรับตามความสูงหน้าจอ */
+}
+
+/* ตัวขีดคั่นกลาง (/) */
+.slash {
+  color: #bcbec3;
+  margin: 0 0.5px;
+}
+
+/* ปุ่มกด MORE ABOUT ME */
+.btn-more {
+  display: inline-block;
+  background-color: #008ca1;
+  color: #ffffff;
+  text-decoration: none;
+  font-size: 1.1vw; /* ขนาดตัวหนังสือบนปุ่มปรับตามหน้าจอ */
+  font-weight: 700;
+  padding: 1.2vh 2.5vw; /* ความกว้างและความสูงของปุ่มปรับตามขนาดหน้าจอ */
+  border-radius: 50px; /* คงความโค้งมนทรงแคปซูล */
+  box-shadow: 0 4px 15px rgba(0, 140, 161, 0.2);
+  transition: all 0.2s ease;
+}
+
+.btn-more:hover {
+  background-color: #007688; /* เปลี่ยนสีให้เข้มขึ้นเล็กน้อยเมื่อนำเมาส์ไปชี้ */
+  transform: translateY(-2px); /* ลูกเล่นปุ่มลอยขึ้นเล็กน้อยเวลาเมาส์ชี้ */
+}
+
+/* ส่วนจัดการรูปภาพโปรไฟล์วงกลม */
+.image-section {
+  flex: 0.8;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.profile-circle {
+  width: 26vw; /* ความกว้างปรับตามขนาดหน้าจอ (ทำให้วงกลมใหญ่ขึ้นบนจอใหญ่) */
+  height: 26vw; /* ความสูงต้องเท่ากับความกว้าง (vw) เพื่อรักษาความเป็นวงกลมดิ๊ก */
+  max-width: 400px; /* จำกัดขนาดไม่ให้ใหญ่ล้นจอ */
+  max-height: 400px;
+  min-width: 250px; /* จำกัดขนาดไม่ให้เล็กเกินไป */
+  min-height: 250px;
+  border-radius: 50%;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.05);
+}
+
+.profile-circle img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* ล็อกสัดส่วนรูปภาพไม่ให้เบี้ยวหรือยืด */
+}

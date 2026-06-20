@@ -1,0 +1,176 @@
+<!doctype html>
+<html lang="th">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Projects (21 Items Perfect Drag) - Sonic</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;900&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="projects.css" />
+  </head>
+  <body>
+    <div class="projects-container">
+      <aside class="sidebar">
+        <div class="sidebar-profile-box">
+          <div class="mini-profile-circle">
+            <img
+              src="img/b3c1196c-4ae7-4f74-9f61-d38f7f5f41cb.jpg"
+              alt="Profile"
+            />
+          </div>
+        </div>
+
+        <nav class="sidebar-menu">
+          <a href="้home.html" class="menu-item">Home</a>
+          <a href="abut me.html" class="menu-item">About me</a>
+          <a href="projects.html" class="menu-item active">Projects</a>
+        </nav>
+      </aside>
+
+      <main class="main-content">
+        <div class="decor-top-right"></div>
+
+        <div class="header-section">
+          <h1 class="page-title">PROJECTS</h1>
+
+          <div class="filter-container">
+            <button class="filter-btn active">All Work</button>
+            <button class="filter-btn">Graphic Design</button>
+            <button class="filter-btn">UI/UX</button>
+          </div>
+        </div>
+
+        <div class="grid-wrapper" id="drag-container">
+          <div class="projects-grid">
+            <div class="project-card">
+              <img src="img/1.png" alt="Work 1" />
+              <div class="card-overlay"><p>View Project 1</p></div>
+            </div>
+            <div class="project-card">
+              <img src="img/2.png" alt="Work 2" />
+              <div class="card-overlay"><p>View Project 2</p></div>
+            </div>
+            <div class="project-card">
+              <img src="img/3.png" alt="Work 3" />
+              <div class="card-overlay"><p>View Project 3</p></div>
+            </div>
+            <div class="project-card">
+              <img src="img/21.png" alt="Work 4" />
+              <div class="card-overlay"><p>View Project 4</p></div>
+            </div>
+            <div class="project-card">
+              <img src="img/4.png" alt="Work 5" />
+              <div class="card-overlay"><p>View Project 5</p></div>
+            </div>
+            <div class="project-card">
+              <img src="img/5.png" alt="Work 6" />
+              <div class="card-overlay"><p>View Project 6</p></div>
+            </div>
+            <div class="project-card">
+              <img src="img/6.png" alt="Work 7" />
+              <div class="card-overlay"><p>View Project 7</p></div>
+            </div>
+            <div class="project-card">
+              <img src="img/7.png" alt="Work 8" />
+              <div class="card-overlay"><p>View Project 8</p></div>
+            </div>
+            <div class="project-card">
+              <img src="img/8.png" alt="Work 9" />
+              <div class="card-overlay"><p>View Project 9</p></div>
+            </div>
+            <div class="project-card">
+              <img src="img/9.png" alt="Work 10" />
+              <div class="card-overlay"><p>View Project 10</p></div>
+            </div>
+            <div class="project-card">
+              <img src="img/10.png" alt="Work 11" />
+              <div class="card-overlay"><p>View Project 11</p></div>
+            </div>
+            <div class="project-card">
+              <img src="img/11.png" alt="Work 12" />
+              <div class="card-overlay"><p>View Project 12</p></div>
+            </div>
+            <div class="project-card">
+              <img src="img/12.png" alt="Work 13" />
+              <div class="card-overlay"><p>View Project 13</p></div>
+            </div>
+            <div class="project-card">
+              <img src="img/13.png" alt="Work 14" />
+              <div class="card-overlay"><p>View Project 14</p></div>
+            </div>
+            <div class="project-card">
+              <img src="img/14.png" alt="Work 15" />
+              <div class="card-overlay"><p>View Project 15</p></div>
+            </div>
+            <div class="project-card">
+              <img src="img/15.png" alt="Work 16" />
+              <div class="card-overlay"><p>View Project 16</p></div>
+            </div>
+            <div class="project-card">
+              <img src="img/16.png" alt="Work 17" />
+              <div class="card-overlay"><p>View Project 17</p></div>
+            </div>
+            <div class="project-card">
+              <img src="img/17.png" alt="Work 18" />
+              <div class="card-overlay"><p>View Project 18</p></div>
+            </div>
+            <div class="project-card">
+              <img src="img/18.png" alt="Work 19" />
+              <div class="card-overlay"><p>View Project 19</p></div>
+            </div>
+            <div class="project-card">
+              <img src="img/19.png" alt="Work 20" />
+              <div class="card-overlay"><p>View Project 20</p></div>
+            </div>
+            <div class="project-card">
+              <img src="img/20.png" alt="Work 21" />
+              <div class="card-overlay"><p>View Project 21</p></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="decor-bottom-right"></div>
+      </main>
+    </div>
+
+    <script>
+      const slider = document.getElementById("drag-container");
+      let isDown = false;
+      let startY;
+      let scrollTop;
+
+      // 1. เมื่อกดเมาส์ลงบนพื้นที่แสดงรูป
+      slider.addEventListener("mousedown", (e) => {
+        isDown = true;
+        slider.classList.add("grabbing");
+        // คำนวณหาตำแหน่งเมาส์ล่าสุด
+        startY = e.pageY - slider.offsetTop;
+        scrollTop = slider.scrollTop;
+      });
+
+      // 2. เมื่อเมาส์หลุดออกจากพื้นที่กล่องรูป ให้ยกเลิกการลาก
+      slider.addEventListener("mouseleave", () => {
+        isDown = false;
+        slider.classList.remove("grabbing");
+      });
+
+      // 3. เมื่อปล่อยนิ้วออกจากเมาส์ ให้เลิกลาก
+      slider.addEventListener("mouseup", () => {
+        isDown = false;
+        slider.classList.remove("grabbing");
+      });
+
+      // 4. จังหวะที่ขยับเมาส์ขณะคลิกค้างไว้ (แกนหลักในการลากขึ้น-ลง)
+      slider.addEventListener("mousemove", (e) => {
+        if (!isDown) return; // ถ้าไม่ได้กดคลิกค้างไว้ ไม่ต้องทำอะไร
+        e.preventDefault(); // บล็อกคำสั่งเริ่มต้นเพื่อไม่ให้หน้าจอกระตุก
+
+        const y = e.pageY - slider.offsetTop;
+        const walk = (y - startY) * 2; // เลข 2 คือความเร็วในการลาก (ปรับเพิ่มลดได้ตามใจชอบ)
+        slider.scrollTop = scrollTop - walk;
+      });
+    </script>
+  </body>
+</html>
